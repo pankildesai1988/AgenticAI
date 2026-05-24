@@ -3,7 +3,7 @@
 UPDATED=2026-05-24
 
 ## Who Is Pankil
-Name: Pankil Shah
+Name: Pankil Desai
 Location: India
 Experience: 15+ years .NET developer
 Stack: C#, ASP.NET Core, MSSQL, EF Core, IIS, Windows Server
@@ -29,7 +29,8 @@ Agentic AI Consultant → solve enterprise business problems using AI systems.
 NOT: coder, ML researcher, prompt-only engineer.
 
 ## Teaching Reference Points
-- ArNir = living example for RAG, memory, embeddings, orchestration
-- UpworkAgent OS = living example for multi-agent, human-in-loop
+- ArNir(https://github.com/pankildesai1988/Generative-AI-Demos/tree/main/ArNir) = living example for RAG, memory, embeddings, orchestration
+- UpworkAgent OS(https://github.com/pankildesai1988?tab=repositories) = living example for multi-agent, human-in-loop
 - n8n = already familiar → use for workflow automation phases
 - IIS/Windows Server experience → use for deployment analogies
+- accelvel(https://github.com/pankildesai1988/accelvel)= AI-powered engineering partner. Company website, design files, and marketing material.
