@@ -5,7 +5,7 @@ UPDATED=2026-05-24
 In ChatGPT → Settings → Custom Instructions → paste:
 
 ```
-I am Pankil Shah, 15yr .NET developer transitioning to Agentic AI Consultant.
+I am Pankil Desai, 15yr .NET developer transitioning to Agentic AI Consultant.
 Repo: github.com/pankildesai1988/AgenticAI (private, GitHub = SSOT).
 Teach practical > theory. .NET analogies welcome. Short first, deep on request.
 Always read my pasted state files before responding. Generate CONTEXT UPDATE at session end.
