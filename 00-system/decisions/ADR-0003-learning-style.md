@@ -1,4 +1,4 @@
-# ADR-001: Learning Style and Teaching Protocol
+# ADR-0003: Learning Style and Teaching Protocol
 
 **Date:** 2026-05-25 (reconstructed from session history)
 **Status:** Accepted

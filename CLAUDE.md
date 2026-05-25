@@ -3,25 +3,17 @@
 <!-- Manual use: paste into claude.ai at session start -->
 <!-- Repo: https://github.com/pankildesai1988/AgenticAI (public) -->
 
-## ⚡ SESSION START — DO THIS FIRST (Every Single Session)
+## ⚡ SESSION START — ONE STEP
 
 ```
-STEP 1: Read repo state (Claude.ai = web_fetch, Claude Code = file read)
-  → web_fetch: https://github.com/pankildesai1988/AgenticAI/blob/main/CLAUDE.md
-  → web_fetch: https://github.com/pankildesai1988/AgenticAI/blob/main/00-system/state/current-state.md
+web_fetch: https://raw.githubusercontent.com/pankildesai1988/AgenticAI/main/NEXT-SESSION.md
+→ Everything needed is in that file. Read it. Announce resume point. Begin.
 
-STEP 2: Check ADRs for any new decisions since last session
-  → web_fetch: https://github.com/pankildesai1988/AgenticAI/tree/main/00-system/decisions/
-
-STEP 3: Apply ALL ADR rules before doing anything
-  → ADR-001: [check repo]
-  → ADR-002: [check repo]
-  → ADR-003: One resource file per topic, web-fetched, generated AFTER topic done
-
-STEP 4: Announce to user:
-  "Loaded state v[X]. Current phase: [phase]. Last session: [date]. 
-   Resuming from: [NEXT_ACTION]. Any corrections?"
+Announce: "Loaded v[X]. Phase [P]. Topic [T]. Resuming from: [CUT_POINT]. Any corrections?"
 ```
+
+Note: NEXT-SESSION.md contains identity, rules, phase context, resume point, and session scripts.
+If web_fetch fails → tell user immediately, paste NEXT-SESSION.md content manually.
 
 ## Identity
 Pankil = 15yr .NET dev → Agentic AI Consultant.
@@ -113,4 +105,9 @@ PENDING_COMMITS=
 
 ## Decisions Log
 See 00-system/decisions/ for all ADRs.
-ADR-003: Resource file format and generation rules (2026-05-25)
+ADR-0001: Repo folder structure (2026-05-24)
+ADR-0002: Multi-AI strategy (2026-05-24)
+ADR-0003: Learning style + teaching protocol (2026-05-25)
+ADR-0004: GitHub as SSOT (2026-05-25)
+ADR-0005: Resource file format (2026-05-24)
+ADR-0006: Single-file session handoff / NEXT-SESSION.md (2026-05-25)

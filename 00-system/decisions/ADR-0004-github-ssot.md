@@ -1,4 +1,4 @@
-# ADR-002: GitHub as Single Source of Truth (SSOT)
+# ADR-0004: GitHub as Single Source of Truth (SSOT)
 
 **Date:** 2026-05-25 (reconstructed from session history)
 **Status:** Accepted
@@ -15,25 +15,26 @@ Need a reliable SSOT that any AI can read at session start.
 
 **SSOT:** GitHub repo `pankildesai1988/AgenticAI` (public)
 **Never trust:** Platform memory (Claude memories, ChatGPT memory)
-**Always read:** `00-system/state/current-state.md` at session start
-**Session end:** Always output CONTEXT UPDATE block → commit to GitHub
+**Session start:** Load NEXT-SESSION.md (see ADR-0006)
+**Session end:** Always generate updated NEXT-SESSION.md block → commit to GitHub
 
 ## Rules
 
 1. All state lives in GitHub, not in AI platform memory
-2. Session start = fetch repo state first, then proceed
-3. Session end = CONTEXT UPDATE block + commit all new files
+2. Session start = fetch NEXT-SESSION.md first (single file, all context)
+3. Session end = generate NEXT-SESSION.md block + commit all new files
 4. Every 5 sessions = compress snapshots to `compressed-memory/`
-5. CLAUDE.md = entry point for all AIs (loaded by Claude Code automatically)
+5. CLAUDE.md = entry point for Claude Code (auto-loaded)
 
 ## Multi-AI Handoff
 
 Each AI has its own handoff file in `AI-HANDOFF/`:
-- `AI-HANDOFF/claude.md` = Claude-specific instructions
 - `AI-HANDOFF/chatgpt.md` = ChatGPT-specific instructions
 - `AI-HANDOFF/gemini.md` = Gemini-specific instructions
+- `AI-HANDOFF/perplexity.md` = Perplexity research-only instructions
 
-Any AI can pick up where another left off by reading repo state.
+All platform files reference NEXT-SESSION.md as the context source.
+Any AI can pick up where another left off by reading NEXT-SESSION.md.
 
 ## Rationale
 

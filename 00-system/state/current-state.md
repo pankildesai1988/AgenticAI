@@ -2,15 +2,15 @@
 <!-- SSOT. Max 100 lines. Update every session end. -->
 <!-- AI: Load this FIRST before doing anything -->
 
-STATE_VERSION=v5
+STATE_VERSION=v6
 LAST_UPDATED=2026-05-25
-LAST_AI=Claude (claude.ai chat)
-CURRENT_PHASE=P00
-PHASE_STATUS=COMPLETE ✅
-NEXT_PHASE=P01
-NEXT_ACTION=Start P01 Prompt Engineering — new session
+LAST_AI=Claude Code
+CURRENT_PHASE=P01
+PHASE_STATUS=NOT_STARTED
+NEXT_ACTION=Start P01-T1 Prompt Anatomy — new session
 BLOCKER=None
-OVERALL_PROGRESS=10% (P00 of P00-P09)
+OVERALL_PROGRESS=10% (P00 complete of P00-P09)
+SESSION_BOOTSTRAP=NEXT-SESSION.md (see ADR-0006)
 
 ## What Was Done This Session
 - P00 fully completed (T1→T5)

@@ -1,5 +1,5 @@
 # AI-HANDOFF — Perplexity
-UPDATED=2026-05-24
+UPDATED=2026-05-25
 
 ## Role
 Research tool only. NOT primary tutor. NOT session-based.
@@ -14,6 +14,7 @@ Research tool only. NOT primary tutor. NOT session-based.
 ## Mini-Context Prompt (paste at start of lookup)
 ```
 Context: I am learning Agentic AI Consulting. Currently on Phase [X]: [topic].
+(See: https://raw.githubusercontent.com/pankildesai1988/AgenticAI/main/NEXT-SESSION.md for full context)
 Research question: [your question]
 Format: concise, practical, consultant-perspective.
 ```
@@ -25,5 +26,5 @@ Format: concise, practical, consultant-perspective.
 - Anything requiring state continuity
 
 ## Session End
-No state update needed. Perplexity = stateless lookup tool.
-Copy useful findings → paste into current phase notes file.
+No NEXT-SESSION.md update needed. Perplexity = stateless lookup tool.
+Copy useful findings → paste into current phase notes or topic resource file.

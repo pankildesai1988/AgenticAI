@@ -6,14 +6,10 @@
 **Mode:** Learning → Caveman/ultra
 **Teach style:** Practical > theory. .NET analogies. Consultant framing.
 
-## Session Start Checklist (AI must do this)
+## Session Start (ONE STEP)
 ```
-1. web_fetch CLAUDE.md → confirm rules loaded
-2. web_fetch this file → confirm phase + focus
-3. web_fetch current-state.md → load last session state
-4. Check 00-system/decisions/ for any new ADRs
-5. Announce: "Loaded v[X]. Phase P01. Resuming from: [NEXT_ACTION]"
-6. Ask: "Any corrections before we start?"
+web_fetch: https://raw.githubusercontent.com/pankildesai1988/AgenticAI/main/NEXT-SESSION.md
+→ Everything is in that file. Announce resume point. Begin.
 ```
 
 ## P01 Entry Brief

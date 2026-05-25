@@ -1,7 +1,7 @@
-# ADR-003: P00 Learning Resource Format
+# ADR-0005: Learning Resource File Format
 
-**Date:** 2026-05-24  
-**Status:** Accepted  
+**Date:** 2026-05-24
+**Status:** Accepted
 **Decided By:** Pankil + Claude (Session)
 
 ---
