@@ -29,6 +29,12 @@ When session must end before topic completes:
 | Trigger | Action |
 |---------|--------|
 | Every 5 sessions | Compress snapshots → compressed-memory/ |
-| Phase complete | Update WHAT PANKIL KNOWS in NEXT-SESSION.md |
+| Phase complete | Collapse WHAT PANKIL KNOWS: 5 topic lines → 1 summary line per phase |
 | Roadmap mutation | Log in roadmap-status.md mutation table |
 | Tool dropped | Update tooling-state.md |
+
+## Phase Collapse Rule (NEXT-SESSION.md size control)
+When phase completes, replace its 5 topic lines with:
+`- P[XX]: [Phase Name] ✅ ([keyword], [keyword], [keyword])`
+Example: `- P00: AI Foundation ✅ (foundation map, tokens/RAG, attention, API cost, agent mental models)`
+Current phase topics stay expanded. File target: ≤ 150L always.

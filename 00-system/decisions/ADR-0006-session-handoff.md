@@ -48,7 +48,14 @@ CUT_POINT enables precise mid-topic resume without re-explaining covered materia
 ## Consequences
 
 - NEXT-SESSION.md must be committed after every session (discipline required)
-- NEXT-SESSION.md grows slightly each phase (update WHAT PANKIL KNOWS section)
+- NEXT-SESSION.md stays ≤ 150L via phase-collapse rule (see below)
 - AI-HANDOFF/CLAUDE.md deleted (was duplicate/conflicting)
 - AI-HANDOFF/CHATGPT-P0-HANDOFF.md deleted (was legacy duplicate)
 - All AI-HANDOFF platform files updated to reference NEXT-SESSION.md
+
+## Size Control: Phase Collapse Rule
+Without control, WHAT PANKIL KNOWS grows 5 lines/phase × 10 phases = 50 lines by P09.
+Fix: when phase completes, collapse 5 topic lines → 1 summary line.
+`- P[XX]: [Phase Name] ✅ ([keyword], [keyword], [keyword])`
+Result: 10 summary lines (all completed) + 5 expanded lines (current phase) = 15 lines max.
+File size at P09 ≈ 125L. Well within 150L target.

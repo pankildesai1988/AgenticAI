@@ -98,3 +98,7 @@ If CUT_POINT=NONE → start next topic T(N+1) fresh.
 3. List all resource files generated this session (pending git commit)
 4. Commit message format: `feat(P[XX]): [what was done]`
 5. DO NOT end session without completing this block
+6. Phase complete → collapse WHAT PANKIL KNOWS:
+   Replace 5 topic lines with 1 summary: `P[XX]: [Phase Name] ✅ ([keyword, keyword, keyword])`
+   Keep current phase topics expanded until that phase completes.
+   Goal: NEXT-SESSION.md stays ≤ 150L forever (P09 complete ≈ 125L).
