@@ -1,20 +1,38 @@
-# active-focus.md
-UPDATED=2026-05-24
+# Active Focus
+<!-- What AI should focus on RIGHT NOW. Update each session. -->
 
-## Current Sprint: Phase 00 — AI Foundation
-Sprint Goal: Think like AI architect, not chatbot user.
+## Current Focus
+**Phase:** P01 — Prompt Engineering (starting next session)
+**Mode:** Learning → Caveman/ultra
+**Teach style:** Practical > theory. .NET analogies. Consultant framing.
 
-### Session Objectives (P00)
-- [ ] AI vs ML vs LLM vs Agentic AI — distinctions
-- [ ] Token + context window concepts
-- [ ] Model capabilities + limitations
-- [ ] Prompt fundamentals
-- [ ] How to read agent behavior
+## Session Start Checklist (AI must do this)
+```
+1. web_fetch CLAUDE.md → confirm rules loaded
+2. web_fetch this file → confirm phase + focus
+3. web_fetch current-state.md → load last session state
+4. Check 00-system/decisions/ for any new ADRs
+5. Announce: "Loaded v[X]. Phase P01. Resuming from: [NEXT_ACTION]"
+6. Ask: "Any corrections before we start?"
+```
 
-### Done This Sprint
-- [x] Learning OS designed + locked
+## P01 Entry Brief
+Pankil uses prompts daily (Claude, ChatGPT, Gemini, Perplexity).
+Gap: knows WHAT to type but not WHY it works or fails.
+Goal: systematic prompt engineering for consulting + ArNir production.
 
-### Key Questions to Answer by P00 End
-1. How explain "Agentic AI" to non-tech client in 60 sec?
-2. When does business need Agent vs simple LLM call?
-3. What is token and why consultant must understand it?
+## What NOT to repeat
+- REST vs LLM stateless debate → resolved ✅
+- Basic token/embedding explanation → done ✅
+- Chatbot vs agent definition → done ✅
+
+## Pending Actions
+- [ ] P01 session start (new session)
+- [ ] ArNir: upgrade chatbot → agent using Semantic Kernel
+- [ ] UpworkAgent OS: integrate Router Agent pattern from T4
+
+## Teaching Reminders
+- Generate resource file IMMEDIATELY after each topic (not at end)
+- Use restaurant/ArNir examples — Pankil connects to these fast
+- Cost math = always good hook (Pankil responds well to numbers)
+- Consultant angle on every topic = required
