@@ -102,6 +102,7 @@ COMPLETED=
 - T1: AI/ML/DL/GenAI map ✅
 - T2: Tokens/Embeddings/Context/RAG ✅
 - T3: Attention mechanism + RAG+Attention combo ✅
+- T4: First API Call — Parameters, Cost & Router Pattern ✅
 - CLAUDE.md updated with session sync rules ✅
 - ADR-003 resource format decision ✅
 PENDING_COMMITS=
@@ -109,6 +110,7 @@ PENDING_COMMITS=
 - 02-learning/phase-P00/resources/p00-topic-01-resources.md
 - 02-learning/phase-P00/resources/p00-topic-02-resources.md
 - 02-learning/phase-P00/resources/p00-topic-03-resources.md
+- 02-learning/phase-P00/resources/p00-topic-04-resources.md
 - 00-system/decisions/ADR-003-resource-format.md
 ---END---
 ```
