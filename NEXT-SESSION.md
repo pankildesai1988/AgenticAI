@@ -6,14 +6,14 @@
 ---
 
 ## SESSION RESUME POINT
-STATE_VERSION=v6
-GENERATED=2026-05-25
-GENERATED_BY=Claude (claude.ai chat + Claude Code)
+STATE_VERSION=v7
+GENERATED=2026-05-27
+GENERATED_BY=Claude (claude.ai chat, caveman/ultra mode)
 CURRENT_PHASE=P01
-CURRENT_TOPIC=T1 — Prompt Anatomy
-PHASE_STATUS=NOT_STARTED
-CUT_POINT=NONE — Clean start. P00 complete. Begin P01-T1 fresh.
-NEXT_STEP=Start P01 Prompt Engineering. Entry: Pankil uses prompts daily but doesn't know WHY they work or fail. Begin with prompt anatomy (role/task/context/format).
+CURRENT_TOPIC=T2 — Prompt Patterns
+PHASE_STATUS=IN_PROGRESS
+CUT_POINT=NONE — T1 complete. Begin P01-T2 fresh.
+NEXT_STEP=Start P01-T2 Prompt Patterns. Cover zero-shot, few-shot, chain-of-thought. Use UpworkAgent + ArNir examples.
 BLOCKER=None
 
 ---
@@ -40,15 +40,16 @@ Socratic check: ask Pankil to apply concept before moving on.
 
 ---
 
-## WHAT PANKIL KNOWS (cumulative — P00 complete)
+## WHAT PANKIL KNOWS (cumulative)
 - AI/ML/DL/GenAI hierarchy map ✅ (P00-T1)
 - Tokens/embeddings/context window/RAG + cost math ✅ (P00-T2)
 - Attention mechanism + how RAG + Attention combine ✅ (P00-T3)
 - API parameters + cost math + Router Agent pattern ✅ (P00-T4)
 - Agent vs chatbot + ReAct + Planner+Tools+Memory model ✅ (P00-T5)
-- Prompt engineering: NOT STARTED → P01
+- Prompt anatomy: instruction strength, role/context, task/format, constraints ✅ (P01-T1)
+- Prompt patterns: NOT STARTED → P01-T2
 
-Do NOT re-explain: RAG basics ✅, token explanation ✅, chatbot vs agent ✅, REST stateless analogy ✅
+Do NOT re-explain: RAG basics ✅, token explanation ✅, chatbot vs agent ✅, prompt anatomy 4 parts ✅
 
 ---
 
@@ -56,22 +57,27 @@ Do NOT re-explain: RAG basics ✅, token explanation ✅, chatbot vs agent ✅, 
 - ArNir: enterprise AI platform (.NET Core net9, pgvector, RAG, OpenAI/Claude/Gemini)
   Status: chatbot today. Missing: tool registry + ReAct loop wiring (Semantic Kernel)
   Next upgrade: wire existing RAG as Tool 1 in Semantic Kernel agent pipeline
+  P01-T1 output: RAG response format spec done (JSON: answer + confidence + source_chunks_used)
 - UpworkAgent OS: hybrid .NET/Python agentic freelance automation
-  Status: Router Agent pattern from P00-T4 ready to integrate
-- This Learning OS: P00 complete (10%), P01 starting next session
+  Status: full prompt architecture designed this session
+  DB schema: PromptTemplates + ProposalLog tables designed
+  Job analysis prompt: JSON output with fit_score, bid_recommendation, suggested_hook
+  Proposal prompt: HOOK/CREDIBILITY/APPROACH/DIFFERENTIATOR/CTA structure
+  AI improvement loop: response rate tracking → auto prompt versioning designed
+- This Learning OS: P00 complete, P01 T1 complete (20% P01)
 
 ---
 
 ## CURRENT PHASE CONTEXT
 Phase: P01 — Prompt Engineering
-Entry gap: Pankil uses prompts daily (Claude/ChatGPT/Gemini/Perplexity) but doesn't know WHY they work or fail
-Goal: systematic prompt engineering for consulting use + ArNir production prompts
-Topics (to be confirmed at P01 start):
-  T1: Prompt anatomy (role/task/context/format)
-  T2: Prompt patterns (zero-shot, few-shot, chain-of-thought)
-  T3: System prompts + temperature + model selection
+Topics:
+  T1: Prompt anatomy ✅ DONE
+  T2: Prompt patterns (zero-shot, few-shot, chain-of-thought) ← NEXT
+  T3: System prompts + temperature + model selection (tone topic parked here from T1)
   T4: Prompt engineering for ArNir (production prompts)
   T5: Prompt evaluation + iteration + consultant delivery
+
+Parked for T3: Tone types (consultant/collaborative/formal/empathetic) + when to use each
 
 ---
 
@@ -87,7 +93,6 @@ Any corrections before we start?"
 ## CUT POINT PROTOCOL
 Fill CUT_POINT when session breaks mid-topic (not at clean topic end).
 Format: `P[XX]-T[NN]: Covered [A] and [B]. NOT YET covered [C]. Next: [first thing to do].`
-Example: `P01-T2: Covered zero-shot + few-shot patterns. NOT YET covered chain-of-thought. Next: CoT with ArNir menu-recommendation example.`
 If CUT_POINT=NONE → start next topic T(N+1) fresh.
 
 ---
@@ -101,4 +106,4 @@ If CUT_POINT=NONE → start next topic T(N+1) fresh.
 6. Phase complete → collapse WHAT PANKIL KNOWS:
    Replace 5 topic lines with 1 summary: `P[XX]: [Phase Name] ✅ ([keyword, keyword, keyword])`
    Keep current phase topics expanded until that phase completes.
-   Goal: NEXT-SESSION.md stays ≤ 150L forever (P09 complete ≈ 125L).
+   Goal: NEXT-SESSION.md stays ≤ 150L forever.
