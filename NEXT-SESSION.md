@@ -6,14 +6,14 @@
 ---
 
 ## SESSION RESUME POINT
-STATE_VERSION=v7
-GENERATED=2026-05-27
+STATE_VERSION=v8
+GENERATED=2026-05-29
 GENERATED_BY=Claude (claude.ai chat, caveman/ultra mode)
 CURRENT_PHASE=P01
-CURRENT_TOPIC=T2 — Prompt Patterns
+CURRENT_TOPIC=T4 — Prompt Engineering for ArNir (Production Prompts)
 PHASE_STATUS=IN_PROGRESS
-CUT_POINT=NONE — T1 complete. Begin P01-T2 fresh.
-NEXT_STEP=Start P01-T2 Prompt Patterns. Cover zero-shot, few-shot, chain-of-thought. Use UpworkAgent + ArNir examples.
+CUT_POINT=NONE — T2 + T3 complete. Begin P01-T4 fresh.
+NEXT_STEP=Start P01-T4. Ask Pankil: "What are the 3 most common query types your ArNir clients ask?" Then build production prompts for each.
 BLOCKER=None
 
 ---
@@ -43,28 +43,30 @@ Socratic check: ask Pankil to apply concept before moving on.
 ## WHAT PANKIL KNOWS (cumulative)
 - AI/ML/DL/GenAI hierarchy map ✅ (P00-T1)
 - Tokens/embeddings/context window/RAG + cost math ✅ (P00-T2)
-- Attention mechanism + how RAG + Attention combine ✅ (P00-T3)
+- Attention mechanism + RAG + Attention combine ✅ (P00-T3)
 - API parameters + cost math + Router Agent pattern ✅ (P00-T4)
 - Agent vs chatbot + ReAct + Planner+Tools+Memory model ✅ (P00-T5)
 - Prompt anatomy: instruction strength, role/context, task/format, constraints ✅ (P01-T1)
-- Prompt patterns: NOT STARTED → P01-T2
+- Prompt patterns: zero-shot, few-shot, CoT, combined ✅ (P01-T2)
+- System prompts (5-part), 9 tone types, temperature, model selection ✅ (P01-T3)
+- ArNir production prompts: NOT STARTED → P01-T4
 
-Do NOT re-explain: RAG basics ✅, token explanation ✅, chatbot vs agent ✅, prompt anatomy 4 parts ✅
+Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅, temperature ✅
 
 ---
 
 ## ACTIVE PROJECTS
 - ArNir: enterprise AI platform (.NET Core net9, pgvector, RAG, OpenAI/Claude/Gemini)
-  Status: chatbot today. Missing: tool registry + ReAct loop wiring (Semantic Kernel)
-  Next upgrade: wire existing RAG as Tool 1 in Semantic Kernel agent pipeline
-  P01-T1 output: RAG response format spec done (JSON: answer + confidence + source_chunks_used)
+  Status: chatbot today. Missing: tool registry + ReAct loop (Semantic Kernel)
+  System prompt rebuilt this session: 5-part structure, RAG-only, JSON format spec
+  Next: build production prompts for top 3 ArNir query types (T4)
 - UpworkAgent OS: hybrid .NET/Python agentic freelance automation
-  Status: full prompt architecture designed this session
-  DB schema: PromptTemplates + ProposalLog tables designed
-  Job analysis prompt: JSON output with fit_score, bid_recommendation, suggested_hook
-  Proposal prompt: HOOK/CREDIBILITY/APPROACH/DIFFERENTIATOR/CTA structure
-  AI improvement loop: response rate tracking → auto prompt versioning designed
-- This Learning OS: P00 complete, P01 T1 complete (20% P01)
+  Proposal prompt v2 generated: 7 fixes applied vs v1
+  Job scoring: CoT + few-shot combined, reasoning_steps in JSON
+  Python _draft_with_claude: 7 issues identified (RateLimitError bug, regex JSON, logging, temp)
+  PENDING: paste 1 real winning proposal as few-shot example before production deploy
+  PENDING: apply 7 Python code fixes
+- This Learning OS: P00 complete, P01 T1+T2+T3 complete (60% P01)
 
 ---
 
@@ -72,12 +74,10 @@ Do NOT re-explain: RAG basics ✅, token explanation ✅, chatbot vs agent ✅, 
 Phase: P01 — Prompt Engineering
 Topics:
   T1: Prompt anatomy ✅ DONE
-  T2: Prompt patterns (zero-shot, few-shot, chain-of-thought) ← NEXT
-  T3: System prompts + temperature + model selection (tone topic parked here from T1)
-  T4: Prompt engineering for ArNir (production prompts)
+  T2: Prompt patterns (zero-shot, few-shot, CoT) ✅ DONE
+  T3: System prompts + temperature + model selection + 9 tone types ✅ DONE
+  T4: Prompt engineering for ArNir (production prompts) ← NEXT
   T5: Prompt evaluation + iteration + consultant delivery
-
-Parked for T3: Tone types (consultant/collaborative/formal/empathetic) + when to use each
 
 ---
 
