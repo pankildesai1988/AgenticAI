@@ -33,6 +33,7 @@ Task: Pankil ended session. Execute session-end protocol in exact sequence:
   STEP 6: Generate updated current-state.md
   STEP 7: Generate updated roadmap-status.md (only if phase status changed)
   STEP 8: List all files generated + git commit commands
+  STEP 9: Download new generated files.
 
 Format: Markdown files only. Code blocks inside markdown = allowed.
         Each file in separate fenced block with filename as header.

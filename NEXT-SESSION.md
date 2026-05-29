@@ -6,14 +6,14 @@
 ---
 
 ## SESSION RESUME POINT
-STATE_VERSION=v8
+STATE_VERSION=v9
 GENERATED=2026-05-29
 GENERATED_BY=Claude (claude.ai chat, caveman/ultra mode)
 CURRENT_PHASE=P01
-CURRENT_TOPIC=T4 — Prompt Engineering for ArNir (Production Prompts)
+CURRENT_TOPIC=T5 — Prompt Evaluation + Iteration + Consultant Delivery
 PHASE_STATUS=IN_PROGRESS
-CUT_POINT=NONE — T2 + T3 complete. Begin P01-T4 fresh.
-NEXT_STEP=Start P01-T4. Ask Pankil: "What are the 3 most common query types your ArNir clients ask?" Then build production prompts for each.
+CUT_POINT=NONE — T4 complete + ArNir Doc Q&A shipped. Begin T5 fresh.
+NEXT_STEP=Start P01-T5. Ask: "ArNir system prompt is live. How do you know if it's getting better or worse? What would you measure?" Then build eval loop.
 BLOCKER=None
 
 ---
@@ -49,24 +49,25 @@ Socratic check: ask Pankil to apply concept before moving on.
 - Prompt anatomy: instruction strength, role/context, task/format, constraints ✅ (P01-T1)
 - Prompt patterns: zero-shot, few-shot, CoT, combined ✅ (P01-T2)
 - System prompts (5-part), 9 tone types, temperature, model selection ✅ (P01-T3)
-- ArNir production prompts: NOT STARTED → P01-T4
+- ArNir production prompts + PDF viewer + highlight + trust gap demo ✅ (P01-T4)
+- Prompt evaluation + iteration: NOT STARTED → P01-T5
 
-Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅, temperature ✅
+Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅, temperature ✅, system prompt 5-part ✅
 
 ---
 
 ## ACTIVE PROJECTS
 - ArNir: enterprise AI platform (.NET Core net9, pgvector, RAG, OpenAI/Claude/Gemini)
-  Status: chatbot today. Missing: tool registry + ReAct loop (Semantic Kernel)
-  System prompt rebuilt this session: 5-part structure, RAG-only, JSON format spec
-  Next: build production prompts for top 3 ArNir query types (T4)
+  SHIPPED T4: PDF inline viewer + source highlight. Healthcare demo complete. 76+37+13 tests green.
+  System prompt: 5-part, RAG-only, JSON with bbox + confidence ✅
+  Next: extend to ecommerce + finance demos OR productionize PDF storage (S3/Blob)
+  Project note: `07-projects/arnir/arnir-document-qa-feature.md`
 - UpworkAgent OS: hybrid .NET/Python agentic freelance automation
-  Proposal prompt v2 generated: 7 fixes applied vs v1
-  Job scoring: CoT + few-shot combined, reasoning_steps in JSON
-  Python _draft_with_claude: 7 issues identified (RateLimitError bug, regex JSON, logging, temp)
-  PENDING: paste 1 real winning proposal as few-shot example before production deploy
-  PENDING: apply 7 Python code fixes
-- This Learning OS: P00 complete, P01 T1+T2+T3 complete (60% P01)
+  Proposal prompt v2: 7 fixes applied ✅
+  Job scoring: CoT + few-shot + reasoning_steps ✅
+  PENDING: paste 1 real winning proposal as few-shot example
+  PENDING: apply 7 Python fixes to _draft_with_claude
+- This Learning OS: P00 complete ✅, P01 T1-T4 complete (80% P01)
 
 ---
 
@@ -75,9 +76,9 @@ Phase: P01 — Prompt Engineering
 Topics:
   T1: Prompt anatomy ✅ DONE
   T2: Prompt patterns (zero-shot, few-shot, CoT) ✅ DONE
-  T3: System prompts + temperature + model selection + 9 tone types ✅ DONE
-  T4: Prompt engineering for ArNir (production prompts) ← NEXT
-  T5: Prompt evaluation + iteration + consultant delivery
+  T3: System prompts + temperature + model selection ✅ DONE
+  T4: ArNir production prompts + Doc Q&A feature ✅ DONE + SHIPPED
+  T5: Prompt evaluation + iteration + consultant delivery ← NEXT
 
 ---
 
