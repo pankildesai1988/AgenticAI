@@ -6,14 +6,14 @@
 ---
 
 ## SESSION RESUME POINT
-STATE_VERSION=v9
-GENERATED=2026-05-29
+STATE_VERSION=v10
+GENERATED=2026-05-30
 GENERATED_BY=Claude (claude.ai chat, caveman/ultra mode)
-CURRENT_PHASE=P01
-CURRENT_TOPIC=T5 — Prompt Evaluation + Iteration + Consultant Delivery
-PHASE_STATUS=IN_PROGRESS
-CUT_POINT=NONE — T4 complete + ArNir Doc Q&A shipped. Begin T5 fresh.
-NEXT_STEP=Start P01-T5. Ask: "ArNir system prompt is live. How do you know if it's getting better or worse? What would you measure?" Then build eval loop.
+CURRENT_PHASE=P02
+CURRENT_TOPIC=T1 — Vector DB Architecture (pgvector deep dive)
+PHASE_STATUS=NOT_STARTED
+CUT_POINT=NONE — P01 complete. Begin P02 fresh.
+NEXT_STEP=Start P02-T1. Ask: "Show me your current ArNir chunking code. What does a chunk look like? How big? What metadata?" Ground in existing code before teaching theory.
 BLOCKER=None
 
 ---
@@ -37,48 +37,43 @@ Socratic check: ask Pankil to apply concept before moving on.
 7. Token limits: current-state.md ≤ 100L | roadmap ≤ 150L | phase files ≤ 400L
 8. Every 5 sessions → compress snapshots → compressed-memory/
 9. ADR format: ADR-0001 through ADR-NNNN (4-digit, sequential)
+10. Mind maps: PNG only via playwright — HTML never committed (ADR-0008)
 
 ---
 
 ## WHAT PANKIL KNOWS (cumulative)
-- AI/ML/DL/GenAI hierarchy map ✅ (P00-T1)
-- Tokens/embeddings/context window/RAG + cost math ✅ (P00-T2)
-- Attention mechanism + RAG + Attention combine ✅ (P00-T3)
-- API parameters + cost math + Router Agent pattern ✅ (P00-T4)
-- Agent vs chatbot + ReAct + Planner+Tools+Memory model ✅ (P00-T5)
-- Prompt anatomy: instruction strength, role/context, task/format, constraints ✅ (P01-T1)
-- Prompt patterns: zero-shot, few-shot, CoT, combined ✅ (P01-T2)
-- System prompts (5-part), 9 tone types, temperature, model selection ✅ (P01-T3)
-- ArNir production prompts + PDF viewer + highlight + trust gap demo ✅ (P01-T4)
-- Prompt evaluation + iteration: NOT STARTED → P01-T5
+- P00: AI Foundation ✅ (foundation map, tokens/RAG, attention, API cost, agent mental models)
+- P01: Prompt Engineering ✅ (anatomy, zero/few/CoT, system prompts, ArNir production, eval loop)
+- RAG Deep Dive: NOT STARTED → P02
 
-Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅, temperature ✅, system prompt 5-part ✅
+Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅,
+temperature ✅, system prompt 5-part ✅, LLM-as-Judge ✅, HITL ✅, feedback loop ✅
 
 ---
 
 ## ACTIVE PROJECTS
 - ArNir: enterprise AI platform (.NET Core net9, pgvector, RAG, OpenAI/Claude/Gemini)
-  SHIPPED T4: PDF inline viewer + source highlight. Healthcare demo complete. 76+37+13 tests green.
-  System prompt: 5-part, RAG-only, JSON with bbox + confidence ✅
-  Next: extend to ecommerce + finance demos OR productionize PDF storage (S3/Blob)
-  Project note: `07-projects/arnir/arnir-document-qa-feature.md`
+  SHIPPED: PDF inline viewer + source highlight + confidence badge (healthcare demo ✅)
+  SHIPPED: Evaluation dashboard (R+F scores, daily trends, reasoning per query) ✅
+  Next: ecommerce + finance demos OR S3/Blob PDF storage
+  Project note: `07-projects/arnir/arnir-status.md`
 - UpworkAgent OS: hybrid .NET/Python agentic freelance automation
-  Proposal prompt v2: 7 fixes applied ✅
-  Job scoring: CoT + few-shot + reasoning_steps ✅
-  PENDING: paste 1 real winning proposal as few-shot example
+  Proposal prompt v2: 7 fixes applied ✅ | Job scoring: CoT + few-shot ✅
+  PENDING: 1 real winning proposal as few-shot example
   PENDING: apply 7 Python fixes to _draft_with_claude
-- This Learning OS: P00 complete ✅, P01 T1-T4 complete (80% P01)
+- This Learning OS: P00 ✅ P01 ✅ | 12 mind map PNGs committed
 
 ---
 
 ## CURRENT PHASE CONTEXT
-Phase: P01 — Prompt Engineering
+Phase: P02 — RAG Deep Dive
+Entry: pgvector + bbox chunking already in ArNir. Optimize + extend existing.
 Topics:
-  T1: Prompt anatomy ✅ DONE
-  T2: Prompt patterns (zero-shot, few-shot, CoT) ✅ DONE
-  T3: System prompts + temperature + model selection ✅ DONE
-  T4: ArNir production prompts + Doc Q&A feature ✅ DONE + SHIPPED
-  T5: Prompt evaluation + iteration + consultant delivery ← NEXT
+  T1: Vector DB architecture (pgvector deep dive) ← NEXT
+  T2: Chunking strategies (text, table, image, bbox)
+  T3: Embedding model selection + comparison
+  T4: Hybrid search (semantic + keyword BM25)
+  T5: Reranking + RAG evaluation metrics
 
 ---
 
@@ -101,10 +96,10 @@ If CUT_POINT=NONE → start next topic T(N+1) fresh.
 ## SESSION END PROCEDURE (AI must do this — no exceptions)
 1. Generate FULL updated NEXT-SESSION.md content (all fields updated)
 2. Announce: "Session end. Copy the NEXT-SESSION.md block below. Commit via Claude Code."
-3. List all resource files generated this session (pending git commit)
+3. List all resource files + PNG files generated this session (pending git commit)
 4. Commit message format: `feat(P[XX]): [what was done]`
-5. DO NOT end session without completing this block
-6. Phase complete → collapse WHAT PANKIL KNOWS:
-   Replace 5 topic lines with 1 summary: `P[XX]: [Phase Name] ✅ ([keyword, keyword, keyword])`
-   Keep current phase topics expanded until that phase completes.
+5. Mind map commit: separate → `chore(mindmap): P[XX]-T[NN] visual`
+6. DO NOT end session without completing this block
+7. Phase complete → collapse WHAT PANKIL KNOWS:
+   Replace topic lines with 1 summary: `P[XX]: [Phase Name] ✅ ([keyword, keyword, keyword])`
    Goal: NEXT-SESSION.md stays ≤ 150L forever.

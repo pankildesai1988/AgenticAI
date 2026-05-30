@@ -6,7 +6,7 @@
 | Phase | Name | Status | Progress | Completed |
 |-------|------|--------|----------|-----------|
 | P00 | AI Foundation | ✅ COMPLETE | 100% | 2026-05-25 |
-| P01 | Prompt Engineering | 🔄 IN PROGRESS | 80% | - |
+| P01 | Prompt Engineering | ✅ COMPLETE | 100% | 2026-05-30 |
 | P02 | RAG Deep Dive | ⏳ Pending | 0% | - |
 | P03 | Agentic Patterns | ⏳ Pending | 0% | - |
 | P04 | Multi-Agent Systems | ⏳ Pending | 0% | - |
@@ -16,43 +16,43 @@
 | P08 | Consulting Playbook | ⏳ Pending | 0% | - |
 | P09 | Capstone Projects | ⏳ Pending | 0% | - |
 
-**Overall: 18% (P00 complete + P01 80%)**
+**Overall: 20% (P00 + P01 complete)**
 
 ---
 
-## P00 — AI Foundation ✅ COMPLETE
+## P00 — AI Foundation ✅ COMPLETE (2026-05-25)
 - P00: AI Foundation ✅ (foundation map, tokens/RAG, attention, API cost, agent mental models)
+- Mind maps: p00-topic-01 through p00-topic-05 + p00-phase-mindmap ✅
 
 ---
 
-## P01 — Prompt Engineering 🔄 IN PROGRESS (80%)
+## P01 — Prompt Engineering ✅ COMPLETE (2026-05-30)
+- P01: Prompt Engineering ✅ (anatomy, zero/few/CoT, system prompts, ArNir production, eval loop)
+- Mind maps: p01-topic-01 through p01-topic-05 + p01-phase-mindmap ✅
 
-**Topics:**
-- T1: Prompt anatomy (4-part, instruction strength, formats, constraints) ✅
-- T2: Patterns (zero-shot, few-shot, CoT, combined) ✅
-- T3: System prompts (5-part), 9 tones, temperature, model selection ✅
-- T4: ArNir production prompts + Doc Q&A feature SHIPPED ✅
-- T5: Prompt evaluation + iteration + consultant delivery ← NEXT
-
-**Key outputs this phase:**
+**Key outputs:**
 - UpworkAgent proposal prompt v2 (7 fixes from v1)
 - UpworkAgent job scoring: CoT + few-shot + reasoning_steps
 - ArNir system prompt: 5-part, RAG-only, JSON + bbox + confidence
-- ArNir healthcare demo: PDF viewer + highlight (trust gap closed)
-- 07-projects/ folder + first project note
+- ArNir healthcare demo: PDF viewer + highlight shipped ✅
+- Evaluation dashboard: LLM-as-Judge R+F scores live ✅
+- HITL design: ticket + live chat for 0.00 score routing
+- Feedback loop: ticket answer → pgvector pattern
+- ADR-0008: Visual mind map PNG protocol
+- 12 mind map PNGs generated (P00 + P01 all topics + phases)
 
 ---
 
-## P02 — RAG Deep Dive ⏳
+## P02 — RAG Deep Dive ⏳ NEXT
 
 **Topics planned:**
-- Vector DB architecture (pgvector deep dive)
-- Chunking strategies
-- Embedding model selection
-- Hybrid search (semantic + keyword)
-- Reranking + evaluation
+- T1: Vector DB architecture (pgvector deep dive)
+- T2: Chunking strategies (text, table, image, bbox)
+- T3: Embedding model selection + comparison
+- T4: Hybrid search (semantic + keyword BM25)
+- T5: Reranking + RAG evaluation metrics
 
-**Pankil's edge:** pgvector already in ArNir + bbox chunking now in place. Will optimize existing.
+**Pankil's edge:** pgvector + bbox chunking already in ArNir. Will optimize + extend existing.
 
 ---
 
@@ -60,15 +60,11 @@
 
 | Folder | Status | Notes |
 |--------|--------|-------|
-| 00-system/ | ✅ Active | ADRs 0001-0007 |
+| 00-system/ | ✅ Active | ADRs 0001-0008 |
 | 01-memory/ | ✅ Active | Session snapshots |
-| 02-learning/ | ✅ Active | P00 complete, P01 in progress |
-| 03-prompts/ | ✅ Active | master-session-end-prompt, proposal prompt v2 |
-| 04-business/ | ⏳ Not created | Planned |
-| 05-debugging/ | ⏳ Not created | Planned |
-| 06-prompts/ | ⏳ Not created | Planned |
-| 07-projects/ | ✅ CREATED | arnir-document-qa-feature.md |
-| 08-meta/ | ⏳ Not created | Planned |
+| 02-learning/ | ✅ Active | P00+P01 complete, mindmaps/ folders added |
+| 03-prompts/ | ✅ Active | master-session-end-prompt v2.0, proposal prompt v2 |
+| 07-projects/ | ✅ Active | arnir-document-qa-feature.md |
 | AI-HANDOFF/ | ✅ Active | Claude, ChatGPT, Gemini, Perplexity |
 
 ---
@@ -79,4 +75,4 @@
 - Practical > theory always
 - Consultant framing at every topic
 - Client-ready language in use cases
-- Generate resource file immediately after each topic (not deferred)
+- Generate resource file + PNG immediately after each topic (not deferred)
