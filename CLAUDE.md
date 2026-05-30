@@ -23,38 +23,52 @@ Profile: 01-memory/consultant-profile/identity.md
 ## Tool Selection Rule (Claude.ai vs Claude Code)
 ```
 Claude.ai (chat):
-  → Learning, concepts, Q&A, mental models, resource generation
+  → Learning, concepts, Q&A, mental models, resource generation, mind map HTML
 
 Claude Code (terminal):
-  → Git read/write, file commits, running code, ArNir/UpworkAgent for referance builds
+  → Git read/write, file commits, running code, playwright PNG render
   → ALWAYS use Claude Code for git ops — never rely on chat for repo writes
+  → ALWAYS use Claude Code for playwright: python3 mindmap render script
 
-Rule: If task needs git → stop → switch to Claude Code
+Rule: If task needs git or PNG render → stop → switch to Claude Code
 ```
 
-## Resource File Rules (ADR-003)
+## Resource File Rules (ADR-0005)
 - Generate ONLY after topic completed in session
 - One file per topic: `02-learning/phase-P[XX]/resources/p[XX]-topic-[NN]-resources.md`
 - Always web_fetch for fresh links before generating
 - Include: Blog, YouTube Video, YouTube Short, Substack, Real Business Use Cases
 - Each entry: Title + Link + 4-bullet summary
 - Non-tech language in use cases (client-ready)
-- Generate T2 + T3 files if missed — never skip
+
+## Mind Map Rules (ADR-0008)
+- Generate AFTER resource file, BEFORE session snapshot
+- Topic map: `02-learning/phase-P[XX]/mindmaps/p[XX]-topic-[NN]-mindmap.png`
+- Phase map:  `02-learning/phase-P[XX]/mindmaps/p[XX]-phase-mindmap.png`
+- HTML = intermediate only (temp file, never commit)
+- PNG = final output (commit separately: chore(mindmap): ...)
+- Style: colorful cards, NOT flow diagram, audience = anyone
+- Must have: acronym hero + 6 cards + analogies + Do/Avoid + Memory Palace
+- Brand: exact accelvel logo SVG + tagline + Pankil Desai credit
+- Render: playwright chromium, 1280px viewport, full_page=True
+- See full spec: 00-system/decisions/ADR-0008-visual-mindmap.md
 
 ## After Each Topic (Checklist)
 ```
 ✅ Topic learning done
 ✅ Generate resource file (web_fetch first)
-✅ Announce: "Topic X done. Resource file ready. Commit when ready."
+✅ Generate topic mind map PNG (Claude Code playwright render)
+✅ Announce: "Topic X done. Resource file + PNG ready. Commit when ready."
 ✅ Update CONTEXT UPDATE block
 ```
 
 ## After Each Session (Rules)
 ```
-✅ Output CONTEXT UPDATE block (see format below)  
-✅ List ALL resource files pending git commit
-✅ Remind: "Use Claude Code to commit these files"
-✅ git commit format: "feat(P[XX]): [what was done]"
+✅ Output CONTEXT UPDATE block
+✅ List ALL resource files + PNG files pending git commit
+✅ Remind: "Use Claude Code to commit + render PNGs"
+✅ git commit format: feat(P[XX]): [what was done]
+✅ mind map commit: chore(mindmap): P[XX]-T[NN] visual
 ```
 
 ## Rules (Quick)
@@ -63,44 +77,15 @@ Rule: If task needs git → stop → switch to Claude Code
 - Never trust platform memory → GitHub = SSOT
 - Every 5 sessions → compress snapshots → compressed-memory/
 - Full rules: 00-system/rules/
-- CLAUDE.md changes → always push immediately, don't wait for session end
+- CLAUDE.md changes → always push immediately
 
 ## Repo Read (Claude.ai Chat Mode)
 ```
-Claude.ai CANNOT push to git directly.
-Claude.ai CAN read public repo via web_fetch.
-
 Read any file:
   web_fetch: https://github.com/pankildesai1988/AgenticAI/blob/main/[path]
-
-Read folder tree:
-  web_fetch: https://github.com/pankildesai1988/AgenticAI/tree/main/[path]
-
+Read raw:
+  web_fetch: https://raw.githubusercontent.com/pankildesai1988/AgenticAI/main/[path]
 If web_fetch blocked → tell user immediately, don't silently fail
-```
-
-## Session End Output
-```
----CONTEXT UPDATE---
-STATE_VERSION=v5
-LAST_UPDATED=2026-05-25
-LAST_AI=Claude
-CURRENT_PHASE=P00
-PHASE_STATUS=COMPLETE ✅
-NEXT_ACTION=Commit all 7 files via GitHub Desktop → start P01 next session
-BLOCKER=None
-PROGRESS=100% P00 / 10% overall
-COMPLETED=
-- T1-T5 all topics + resource files ✅
-- CLAUDE.md session sync rules ✅
-- ADR-003 resource format decision ✅
-- ReAct + Planner+Tools+Memory mental model ✅
-- Semantic Kernel identified for ArNir upgrade path ✅
-PENDING_COMMITS=
-- CLAUDE.md
-- ADR-003-resource-format.md
-- p00-topic-01 through p00-topic-05 resource files (5 files)
----END---
 ```
 
 ## Decisions Log
@@ -112,3 +97,4 @@ ADR-0004: GitHub as SSOT (2026-05-25)
 ADR-0005: Resource file format (2026-05-24)
 ADR-0006: Single-file session handoff / NEXT-SESSION.md (2026-05-25)
 ADR-0007: Master prompt strategy + 03-prompts/ folder (2026-05-27)
+ADR-0008: Visual mind map PNG generation protocol (2026-05-30)
