@@ -6,14 +6,14 @@
 ---
 
 ## SESSION RESUME POINT
-STATE_VERSION=v10
-GENERATED=2026-05-30
+STATE_VERSION=v11
+GENERATED=2026-06-10
 GENERATED_BY=Claude (claude.ai chat, caveman/ultra mode)
 CURRENT_PHASE=P02
-CURRENT_TOPIC=T1 — Vector DB Architecture (pgvector deep dive)
-PHASE_STATUS=NOT_STARTED
-CUT_POINT=NONE — P01 complete. Begin P02 fresh.
-NEXT_STEP=Start P02-T1. Ask: "Show me your current ArNir chunking code. What does a chunk look like? How big? What metadata?" Ground in existing code before teaching theory.
+CURRENT_TOPIC=T2 — Chunking Strategies (text, table, image, bbox)
+PHASE_STATUS=IN_PROGRESS
+CUT_POINT=NONE — T1 complete. Begin P02-T2 fresh.
+NEXT_STEP=Start P02-T2 Chunking Strategies. Ask: "Pull up a real chunk from the Keysight PDF that got cut badly. We fix chunking on YOUR data." Fixed 600-char chunker cuts mid-sentence; page-number package pending — both are T2 entry material.
 BLOCKER=None
 
 ---
@@ -38,41 +38,45 @@ Socratic check: ask Pankil to apply concept before moving on.
 8. Every 5 sessions → compress snapshots → compressed-memory/
 9. ADR format: ADR-0001 through ADR-NNNN (4-digit, sequential)
 10. Mind maps: PNG only via playwright — HTML never committed (ADR-0008)
+11. Consultant cards: PNG per topic + phase rollup (ADR-0009, master prompt v3.0 STEP 3b)
 
 ---
 
 ## WHAT PANKIL KNOWS (cumulative)
 - P00: AI Foundation ✅ (foundation map, tokens/RAG, attention, API cost, agent mental models)
 - P01: Prompt Engineering ✅ (anatomy, zero/few/CoT, system prompts, ArNir production, eval loop)
-- RAG Deep Dive: NOT STARTED → P02
+- P02-T1: Vector DB Architecture ✅ (exact/HNSW/IVFFlat, m/ef_construction/ef_search,
+  isolate-the-layer diagnostic, operator-class bug, 7KB RAM math, pgvector ceiling ~10-50M,
+  2026 vendor map: Qdrant=filtering, Pinecone=zero-ops-no-tuning, Milvus=billions)
+- P02-T2 Chunking: NOT STARTED ← NEXT
 
-Do NOT re-explain: RAG ✅, tokens ✅, chatbot vs agent ✅, prompt anatomy ✅, zero/few/CoT ✅,
-temperature ✅, system prompt 5-part ✅, LLM-as-Judge ✅, HITL ✅, feedback loop ✅
+Do NOT re-explain: RAG ✅, tokens ✅, prompt anatomy ✅, temperature ✅, system prompt 5-part ✅,
+LLM-as-Judge ✅, HITL ✅, HNSW knobs ✅, ef_search-first debug order ✅, capacity math ✅
 
 ---
 
 ## ACTIVE PROJECTS
 - ArNir: enterprise AI platform (.NET Core net9, pgvector, RAG, OpenAI/Claude/Gemini)
-  SHIPPED: PDF inline viewer + source highlight + confidence badge (healthcare demo ✅)
-  SHIPPED: Evaluation dashboard (R+F scores, daily trends, reasoning per query) ✅
-  Next: ecommerce + finance demos OR S3/Blob PDF storage
-  Project note: `07-projects/arnir/arnir-status.md`
+  SHIPPED 43f7dc7: 3-layer config (DB→appsettings→constants), HNSW index (cosine_ops,
+  m=16, ef_con=64), VectorDbContextFactory, template placeholder bug fixed
+  ({retrievedChunks} single-brace → context never injected — root cause of "Not found")
+  PENDING: page-number change package (RagPageContent/Pages/PageNumber/per-page chunking),
+  verify keyword Score 0.75 + hybrid 0.8/0.2 values applied, bbox=null for image/table chunks
 - UpworkAgent OS: hybrid .NET/Python agentic freelance automation
-  Proposal prompt v2: 7 fixes applied ✅ | Job scoring: CoT + few-shot ✅
-  PENDING: 1 real winning proposal as few-shot example
-  PENDING: apply 7 Python fixes to _draft_with_claude
-- This Learning OS: P00 ✅ P01 ✅ | 12 mind map PNGs committed
+  PENDING: 1 real winning proposal as few-shot | 7 Python fixes to _draft_with_claude
+- Learning OS: P00 ✅ P01 ✅ P02 20% | mind maps 13 PNGs | consultant cards 1 PNG (NEW: ADR-0009)
 
 ---
 
 ## CURRENT PHASE CONTEXT
 Phase: P02 — RAG Deep Dive
-Entry: pgvector + bbox chunking already in ArNir. Optimize + extend existing.
+Entry: pgvector + HNSW live in ArNir. T1 grounded in real production deploy.
 Topics:
-  T1: Vector DB architecture (pgvector deep dive) ← NEXT
-  T2: Chunking strategies (text, table, image, bbox)
+  T1: Vector DB architecture ✅ DONE
+  T2: Chunking strategies (text, table, image, bbox) ← NEXT
   T3: Embedding model selection + comparison
-  T4: Hybrid search (semantic + keyword BM25)
+  T4: Hybrid search (semantic + keyword BM25) — note: ArNir hybrid merge already
+      reviewed in T1 session (Score 1.0 bug); T4 deepens BM25 theory
   T5: Reranking + RAG evaluation metrics
 
 ---
@@ -94,12 +98,11 @@ If CUT_POINT=NONE → start next topic T(N+1) fresh.
 ---
 
 ## SESSION END PROCEDURE (AI must do this — no exceptions)
-1. Generate FULL updated NEXT-SESSION.md content (all fields updated)
+1. Run master-session-end-prompt.md v3.0 (STEP 1-9 incl. 3a mindmap + 3b consultant card)
 2. Announce: "Session end. Copy the NEXT-SESSION.md block below. Commit via Claude Code."
 3. List all resource files + PNG files generated this session (pending git commit)
-4. Commit message format: `feat(P[XX]): [what was done]`
+4. Commit format: `feat(P[XX]): [what was done]`
 5. Mind map commit: separate → `chore(mindmap): P[XX]-T[NN] visual`
-6. DO NOT end session without completing this block
-7. Phase complete → collapse WHAT PANKIL KNOWS:
-   Replace topic lines with 1 summary: `P[XX]: [Phase Name] ✅ ([keyword, keyword, keyword])`
-   Goal: NEXT-SESSION.md stays ≤ 150L forever.
+6. Consultant card commit: separate → `chore(card): P[XX]-T[NN] consultant card`
+7. DO NOT end session without completing this block
+8. Phase complete → collapse WHAT PANKIL KNOWS to 1 summary line. Goal: ≤ 150L forever.
