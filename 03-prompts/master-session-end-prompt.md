@@ -93,7 +93,7 @@ BRAND:       accelvel SVG logo (exact spec) top-left · Tagline underneath · Pa
 FOOTER:      Dark #1C1A17 bar · phase+topic label · accelvel.com credit
 FONTS:       Fredoka One (headings) · Nunito (body) · Outfit (brand elements)
 NUMBERS:     All scores/metrics = generic examples (not live production data)
-CANVAS:      width=1200px · full_page=True · viewport 1280×900
+CANVAS:      width=1200px · full_page=True · viewport 1200×900 (= body width, no right gap)
 OUTPUT:      PNG only. HTML is temp/discarded.
 
 LOGO SVG (exact — never alter):
@@ -146,7 +146,7 @@ COLORS:      Ember #E8622A · Charcoal #1C1A17 · WarmBG #FAF3EE · WarmWhite #F
 FONT:        Outfit only (300/400/500/600/700/800)
 NUMBERS:     Real consulting numbers OK on cards ($/mo, ms, GB) — generic examples,
              never live client data
-CANVAS:      width=1200px · full_page=True · viewport 1280×900
+CANVAS:      width=1200px · full_page=True · viewport 1200×900 (= body width, no right gap)
 OUTPUT:      PNG only. HTML is temp/discarded.
 
 PHASE CARD:  At phase completion → one rollup card:

@@ -81,7 +81,9 @@ Sections 5 and 6 are conditional; 1-4, 7, 8 are mandatory on every card.
   blue #2A5FA8 / amber #B07818
 - Never pure #ffffff or #000000
 - Full brand kit reference: accelvel repo CLAUDE.md (colors, radii, shadows)
-- Canvas: width=1200px · viewport 1280×900 · full_page=True
+- Canvas: width=1200px · **viewport 1200×900 (MUST equal body width —
+  wider viewport leaves a dead strip on the right edge of full-page PNG)** ·
+  full_page=True
 - Numbers: real consulting numbers OK ($/mo, ms, GB) as generic examples —
   never live client data
 
@@ -110,13 +112,17 @@ python3 -c "
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     b = p.chromium.launch()
-    pg = b.new_page(viewport={'width':1280,'height':900})
+    pg = b.new_page(viewport={'width':1200,'height':900})  # MUST match body width
     pg.goto('file:///home/claude/card_temp.html')
     pg.wait_for_timeout(2500)
     pg.screenshot(path='/path/to/p[XX]-topic-[NN]-consultant-card.png', full_page=True)
     b.close()
 "
 ```
+RULE (applies to ALL PNG artifacts incl. ADR-0008 mind maps):
+viewport width == body width == 1200. A wider viewport (e.g. 1280)
+adds an 80px dead strip on the right of every full_page screenshot.
+Fixed 2026-06-11; all 13 existing cards re-rendered at 1200.
 
 ## First Artifact
 `p02-topic-01-consultant-card.png` (Vector DB Architecture) — generated
