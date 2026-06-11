@@ -22,13 +22,13 @@
 
 ## P00 — AI Foundation ✅ COMPLETE (2026-05-25)
 - P00: AI Foundation ✅ (foundation map, tokens/RAG, attention, API cost, agent mental models)
-- Mind maps: p00-topic-01 through p00-topic-05 + p00-phase-mindmap ✅
+- Mind maps: p00-topic-01..05 + phase ✅ | Consultant cards: T1-T5 + phase ✅ (backfilled 2026-06-11)
 
 ---
 
 ## P01 — Prompt Engineering ✅ COMPLETE (2026-05-30)
 - P01: Prompt Engineering ✅ (anatomy, zero/few/CoT, system prompts, ArNir production, eval loop)
-- Mind maps: p01-topic-01 through p01-topic-05 + p01-phase-mindmap ✅
+- Mind maps: p01-topic-01..05 + phase ✅ | Consultant cards: T1-T5 + phase ✅ (backfilled 2026-06-11)
 - Key outputs: UpworkAgent proposal prompt v2, job scoring CoT+few-shot,
   ArNir 5-part system prompt + healthcare demo shipped, eval dashboard, ADR-0008
 
@@ -62,6 +62,7 @@
 |------|----------|--------|
 | 2026-06-10 | ADR-0009 + consultant cards added to session-end protocol (v3.0) | T1: need judgment-tool artifact beyond memory-aid mind maps |
 | 2026-06-10 | P02-T4 note: ArNir hybrid merge already reviewed in T1 (Score 1.0 bug) | T4 will deepen BM25 theory, not re-discover the bug |
+| 2026-06-11 | Consultant cards backfilled P00+P01 (12) · viewport rule 1200=body width (ADR-0009) | Right-edge dead strip on all full_page PNGs |
 
 ---
 

@@ -1,8 +1,8 @@
 # Current State
 <!-- SSOT. Max 100 lines. Update every session end. -->
 
-STATE_VERSION=v11
-LAST_UPDATED=2026-06-10
+STATE_VERSION=v12
+LAST_UPDATED=2026-06-11
 LAST_AI=Claude (claude.ai chat, caveman/ultra)
 CURRENT_PHASE=P02
 PHASE_STATUS=IN_PROGRESS (T1 of 5 complete — 20%)
@@ -22,6 +22,10 @@ SESSION_BOOTSTRAP=NEXT-SESSION.md (ADR-0006)
 - ADR-0009 created: Consultant Card protocol (mind map = memory · card = judgment)
 - master-session-end-prompt.md → v3.0 (STEP 3b consultant cards + STEP 7a extended)
 - First consultant card: p02-topic-01 ✅ | Mind map: p02-topic-01 ✅
+- BACKFILL (2026-06-11): 12 consultant cards generated (P00 T1-T5+phase,
+  P01 T1-T5+phase) — full coverage, zero STEP 7a debt
+- Viewport bug fixed: 1280→1200 (= body width) kills 80px right dead strip;
+  ADR-0009 + master prompt v3.0 patched; all 13 cards + P02-T1 mindmap re-rendered
 
 ## Pankil's Current Understanding Level
 - P00 + P01: ✅ all (see roadmap)
@@ -45,5 +49,6 @@ SESSION_BOOTSTRAP=NEXT-SESSION.md (ADR-0006)
 
 ## Visual Artifacts Status
 - Mind maps: P00 (6) + P01 (6) + P02-T1 (1) = 13 PNGs
-- Consultant cards: P02-T1 (1) — NEW artifact type, ADR-0009
+  (P00/P01 maps rendered @1280 — cosmetic re-render @1200 pending)
+- Consultant cards: 13 PNGs — FULL coverage (P00 6 + P01 6 + P02-T1), all @1200
 - Protocols: ADR-0008 (mindmaps) + ADR-0009 (cards) + master prompt v3.0
