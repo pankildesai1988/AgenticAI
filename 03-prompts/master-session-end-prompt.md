@@ -96,13 +96,53 @@ NUMBERS:     All scores/metrics = generic examples (not live production data)
 CANVAS:      width=1200px · full_page=True · viewport 1200×900 (= body width, no right gap)
 OUTPUT:      PNG only. HTML is temp/discarded.
 
-LOGO SVG (exact — never alter):
-  Outer A: #E8622A, SW=8, square linecap, clipPath y=-2..75
-  Inner A: #1C1A17 (light bg) / #FAF3EE (dark bg), SW=8, square, clipPath y=37.2..75
-  viewBox: "2 0 72 75"
-  Wordmark: accel(#E8622A) + vel(#1C1A17), Outfit 600, letter-spacing -0.5px
-  Tagline: "From idea to impact — faster." (#E8622A on "— faster.")
-  Gap: 14px between icon and wordmark
+LOGO — FINAL LOCKED SVG SPEC v3
+
+**ALL FLAT SQUARE. NO CIRCLE. NEVER alter these coordinates or values.**
+
+```svg
+<svg viewBox="2 0 72 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Outer A: clip bottom at y=75 -->
+    <clipPath id="co">
+      <rect x="0" y="-2" width="80" height="77"/>
+    </clipPath>
+    <!-- Inner A: clip top at y=37.2 + bottom at y=75 → flat square both ends -->
+    <clipPath id="ci">
+      <rect x="0" y="37.2" width="80" height="38"/>
+    </clipPath>
+  </defs>
+  <!-- OUTER A: Ember, SW=8, square linecap, clipped -->
+  <g clip-path="url(#co)">
+    <line x1="38" y1="0"    x2="6"    y2="75" stroke="#E8622A" stroke-width="8" stroke-linecap="square"/>
+    <line x1="38" y1="0"    x2="70"   y2="75" stroke="#E8622A" stroke-width="8" stroke-linecap="square"/>
+  </g>
+  <!-- INNER A: Charcoal, SW=8, square linecap, clipped → flat square top + bottom -->
+  <g clip-path="url(#ci)">
+    <line x1="38" y1="37.2" x2="21.9" y2="75" stroke="#1C1A17" stroke-width="8" stroke-linecap="square"/>
+    <line x1="38" y1="37.2" x2="54.1" y2="75" stroke="#1C1A17" stroke-width="8" stroke-linecap="square"/>
+  </g>
+  <!-- NO circle — inner apex is flat square via clipPath -->
+</svg>
+```
+
+**Dark background variant:** inner color = `#FAF3EE`
+
+**Geometry facts:**
+- viewBox: `2 0 72 75` (trimmed — no dead left/right space)
+- stroke-linecap: `square` on all 4 legs
+- clipPath outer: `rect x=0 y=-2 w=80 h=77` → clips bottom at y=75
+- clipPath inner: `rect x=0 y=37.2 w=80 h=38` → clips top at y=37.2, bottom at y=75
+- All 4 ends: flat square (no circle, no round caps)
+- Slope: -0.4267 (both A legs perfectly parallel)
+- Gap outer→inner: 7.26 SVG units (constant top-to-bottom)
+- Both bottoms at y=75 (same baseline, flat horizontal)
+- Both stroke widths: 8 (identical thickness)
+- Lockup gap: 14px between icon and wordmark
+
+**Wordmark:**
+```html
+<span style="color:#E8622A">accel</span><span style="color:#1C1A17">vel</span>
 
 ---
 
